@@ -9,7 +9,7 @@ console.log(popShift(["challenge", "is", "not", "complete"]));
 let a = [1, 2, 3, 4, 5, 5, 5, 7];
 let b = [1, 2, 3, 4, 5, 6, 7];
 console.log(a.splice(5, 2, 6), a); //splice(first index, number of elements, replace the removed index)
-console.log(b.slice(0, 3), b); //slice(first index, last index (not included))
+console.log(b.slice(0, 2), b); //slice(first index, last index (not included))
 
 function copyMachine(arr, num) {
   let newArr = [];

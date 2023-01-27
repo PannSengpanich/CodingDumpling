@@ -43,3 +43,8 @@ for (let property in c) {
 }
 
 console.log(ownProps_a, prototypeProps_a);
+
+let e = [1, 2, 3];
+let f = e;
+let g = [...e];
+console.log(f, g);

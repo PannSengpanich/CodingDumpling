@@ -8,7 +8,6 @@ let foods = {
 };
 
 function checkInventory(scannedItem) {
-  // change code below this line
   let result = foods[scannedItem];
   return result;
 }
