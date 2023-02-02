@@ -26,7 +26,6 @@ const contacts = [
 ];
 
 function lookUpProfile(name, prop) {
-
   for (let i = 0; i < contacts.length; i++) {
     if (contacts[i].firstName === name) {
       if (prop in contacts[i]) {
@@ -39,4 +38,4 @@ function lookUpProfile(name, prop) {
   return "No such contact";
 }
 
-lookUpProfile("Akira", "likes");
+console.log(lookUpProfile("Akira", "likes"));

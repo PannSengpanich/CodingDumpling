@@ -48,3 +48,29 @@ let e = [1, 2, 3];
 let f = e;
 let g = [...e];
 console.log(f, g);
+
+console.log(
+  Object.keys(
+    { first: "Romeo", last: "Montague" },
+    { first: "Mercutio", last: null },
+    { first: "Tybalt", last: "Capulet" }
+  )
+);
+
+console.log("onsonant".split("").push());
+
+console.log("A".charCodeAt());
+console.log(/\d{3}-\d{3}-\d{4}/.test("555-555-5555"));
+console.log(Math.floor(2 / 3));
+
+let value = [
+  { name: "PENNY", val: 0.01 },
+  { name: "NICKEL", val: 0.05 },
+  { name: "DIME", val: 0.1 },
+  { name: "QUARTER", val: 0.25 },
+  { name: "ONE", val: 1 },
+  { name: "FIVE", val: 5 },
+  { name: "TEN", val: 10 },
+  { name: "TWENTY", val: 20 },
+  { name: "ONE HUNDRED", val: 100 },
+];

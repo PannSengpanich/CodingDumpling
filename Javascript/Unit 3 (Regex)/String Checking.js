@@ -1,5 +1,5 @@
 let a = /Pann/;
-let b = "Pann Sengpanich human Human 6338136621 P pa paa paaa";
+let b = "Pann Sengpanich human Human 6338136621 P Pp ppaa pa paa paaa";
 let c = /pann/;
 let d = /dog|cat|human|/; // or
 let e = /pann/i; // ignore case
@@ -10,8 +10,8 @@ let h2 = /Pa/;
 let i = /bad|bed|bid|bod|bud/; // = /b[aeiou]d/
 let j = /a|b|c|d|e|1|2|3|4|5/; // = /[a-e1-5]/
 let k = /[^aeiou^0-9]/gi; //not included vowels and 0-9
-let l = /Pa+/gi; //find a one or more than 1 time in a row
-let m = /Pa*/gi; //find 0 one or more than 0 time in a row
+let l = /Pa+/gi; //find one or more than 1 time in a row
+let m = /Pa*/gi; //find 0 or more than 0 time in a row
 
 let o = /S[a-z]*n/; //greedy matching
 let p = /S[a-z]*?n/; //lazy matching
