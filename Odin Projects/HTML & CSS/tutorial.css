@@ -1,0 +1,175 @@
+* {
+  /** universal selector */
+  color: aliceblue;
+}
+
+div,
+p {
+  /** GROUPING */
+  color: antiquewhite;
+}
+
+.class {
+  /** class selector*/
+  color: aqua;
+}
+
+#Title {
+  background-color: azure;
+}
+
+.class.secondclass {
+  /** CHAINING SELECTOR <p class="class secondclass">...</p> */
+  color: beige;
+}
+.class#id {
+  /* <p class="class" id="id">...</p> */
+  color: bisque;
+}
+
+.class .insideclass {
+  /** DESCENDANT COMBINATOR -selecting the element that has class ="insideclass" inside class ="class" */
+  color: black;
+}
+
+/*? color */
+p {
+  /* hex example: */
+  color: #1100ff;
+  /* rgb example: */
+  color: rgb(100, 0, 127);
+  /* hsl example: */
+  color: hsl(15, 82%, 56%);
+}
+
+/*? text*/
+
+p {
+  font-family: "DejaVu Sans", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/*? height*/
+
+img {
+  height: auto;
+  width: 500px;
+}
+
+/* !Specificity
+
+-  selectors: (most specific) ID -> Class -> Type
+
+-  If no declaration has a selector with a higher specificity, a large amount
+of a single selector will beat a smaller amount of that same selector 
+
+-  *,+,~,> has no specifcity 
+
+-  targeting element always beats inheritance 
+
+<div id="parent">
+  <div class="child"></div>
+</div>
+
+#parent {
+  color: red; (inheritance)
+}
+
+.child {
+  color: blue; (targeting)
+}
+class ="child" will have blue;
+
+-  if it was all equals, the last rule defined is the winner.
+
+
+!Adding CSS to HTML
+
+? - EXTERNAL CSS (best)
+<head>
+  <link rel="stylesheet" href="tutorial.css">
+</head>
+
+? - INTERNAL CSS
+<head>
+  <style>
+  .
+  .
+  .
+  </style>
+</head>
+
+? - INLINE CSS
+<body>
+  <div style="color: white; background-color: black;">...</div>
+</body>
+
+
+!POSITIONING & LAYOUT 
+
+-  Padding: space b/w border of the box & content of the box
+-  Margin: space b/w border of the box & border of adjacent boxes,
+            *if too little, it can be collapsed in vertical direction.
+-  Border: space b/w margin and the padding
+
+? Boxes have outer display and inner display types
+-  Outer display properties: block,inline,...
+-  Inner display properties: flex,grid,table,ruby,...
+
+Box have outer display:inline & inner display:grid =
+1.
+display:inline
+display:grid
+
+2.display:inline-grid
+
+3.display:inline grid
+
+Outer:BLOCK = set the outer display of boxes vertically, all width spaces will be taken
+Outer:INLINE = set the outer display of boxes horizontally, uses space as less as possible,can't set width and height.
+display:inline-block = just like inline but can adjust width and height
+
+
+!TRICK
+
+margin: 1px 2px 3px 4px = (margin-top = 1,margin-right = 2,margin-bottom = 3,margin-left = 4)
+margin: 0 auto          = (margin-top = 0,margin-right = auto,margin-bottom = 0,margin-left = auto)
+
+?DIVS (block by default) and SPANS (inline by default)
+-  a generic boxes that can contain anything.
+
+!FLEXBOX
+
+? Flex containers = element that has "display: flex"
+? Flex items = element that lives directly inside of a flex container
+A flex items can be inside a flex item that situated inside flex containers.
+
+*Shorthand property for flex item
+?flex: (flex-grow) (flex-shrink) (flex-basis);
+flex: 1; = flex-grow: 1, flex-shrink: 1, flex-basis: 0 = flex: 1 1 0
+flex: auto = flex: 1 1 auto
+flex: initial = flex 0 1 auto, shrink to fit but not grow beyond size
+flex: none = flex: 0 0 auto, fully inflexible
+
+?flex-grows: growth factor
+?flex-shrink: specify higher numbers to make certain items shrink at a higher rate than normal.
+?flex-basis: initial size of item. 0% = ignore height(for column) or width(for row) declaration,auto = check for height or width
+
+-  flex item can be set the width and height.
+
+?flex-direction(for container): (row,coloumn)
+row: main axis = horizontal, cross axis = vertical
+column = main axis = vertical, cross axis = horizontal
+?justify-content (for container): aligns items across the main axis 
+ex.flex-start,flex-end,center,space-between...
+?align-items (for container): change the placement of items along the cross axis
+ex.flex-start,flex-end,center,stretch,...
+?align-self (for item): align only for that item
+ex.flex-start, flex-end,...
+?gap (for container): ...px;
+?flex-wrap(for container):sets whether flex items are forced onto one line or can wrap onto multiple lines. 
+ex.nowrap,wrap,wrap-reverse.
+
+*/
