@@ -1,0 +1,49 @@
+<!-- header>nav>ul*3.class-${List Item $$} -->
+<header>
+  <nav>
+    <ul class="class-1">
+      List Item 01
+    </ul>
+    <ul class="class-2">
+      List Item 02
+    </ul>
+    <ul class="class-3">
+      List Item 03
+    </ul>
+  </nav>
+</header>
+
+<!-- (header>nav)+main+footer -->
+<header>
+  <nav></nav>
+</header>
+<main></main>
+<footer></footer>
+
+<!-- (header>h2{Heading}+nav>ol>li*5>a{Link $})+main+footer -->
+<header>
+  <h2>Heading</h2>
+  <nav>
+    <ol>
+      <li><a href="">Link 1</a></li>
+      <li><a href="">Link 2</a></li>
+      <li><a href="">Link 3</a></li>
+      <li><a href="">Link 4</a></li>
+      <li><a href="">Link 5</a></li>
+    </ol>
+  </nav>
+</header>
+<main></main>
+<footer></footer>
+
+<!--
+  form:post>(.group>label+input:text)+(.group>label+input:number)
+-->
+<form action="" method="post">
+  <div class="group">
+    <label for=""></label><input type="text" name="" id="" />
+  </div>
+  <div class="group">
+    <label for=""></label><input type="number" name="" id="" />
+  </div>
+</form>
