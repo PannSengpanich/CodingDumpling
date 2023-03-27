@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 32px;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+      .f1 {
+        font-family: "Roboto", sans-serif;
+        font-style: italic;
+        text-shadow: 5px 5px #558abb;
+      }
+      .f2 {
+        font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif,
+          "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      h1 {
+        font-family: "COUTUREBold";
+        margin: 0;
+        font-size: 38px;
+      }
+
+      .wide {
+        font-size: 24px;
+        letter-spacing: 0.5em;
+      }
+
+      .narrow {
+        font-size: 48px;
+        letter-spacing: -0.15em;
+      }
+      .lineheight {
+        line-height: 4;
+      }
+      .overflow1 {
+        width: 190px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .overflow2 {
+        overflow: scroll;
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="f1">Hello</div>
+    <div class="f2">Hello</div>
+    <p>I <em>never</em> said he stole your money</p>
+    <p>I never said <em>he</em> stole your money</p>
+    <p>I never said he stole <em>your</em> money</p>
+    <h1>Hello World!</h1>
+    <h1 class="wide">Hello World!</h1>
+    <h1 class="narrow">Hello World!</h1>
+    <p class="lineheight">
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Reiciendis sequi
+      est modi, temporibus eaque fugiat molestias obcaecati distinctio
+      cupiditate. Beatae itaque eum eos deserunt illo consequatur quisquam
+      similique dolorum adipisci.
+    </p>
+    <div class="overflow1">Hello my name is</div>
+    <div class="overflow2">
+      Michaelmas term lately over, and the Lord Chancellor sitting in Lincoln's
+      Inn Hall. Implacable November weather. As much mud in the streets as if
+      the waters had but newly retired from the face of the earth
+    </div>
+  </body>
+</html>

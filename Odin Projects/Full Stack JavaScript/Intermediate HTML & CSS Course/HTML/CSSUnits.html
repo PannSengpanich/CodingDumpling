@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      html {
+        font-size: 16px;
+      }
+      .box {
+        background-color: pink;
+        border: 2px solid black;
+      }
       .wrapper {
         width: 400px;
         border: 5px solid rebeccapurple;
@@ -18,6 +25,19 @@
       .percent {
         width: 40%;
       }
+
+      .ems li {
+        font-size: 1.3em;
+      }
+
+      .rems li {
+        font-size: 1.3rem;
+      }
+      .viewportbox {
+        background-color: grey;
+        width: 50vw;
+        height: 20vh;
+      }
     </style>
   </head>
   <body>
@@ -27,5 +47,39 @@
       <div class="box px">I am 200px wide</div>
       <div class="box percent">I am 40% wide</div>
     </div>
+    <ul class="ems">
+      <li>One</li>
+      <li>Two</li>
+      <li>
+        Three
+        <ul>
+          <li>Three A</li>
+          <li>
+            Three B
+            <ul>
+              <li>Three B 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <ul class="rems">
+      <li>One</li>
+      <li>Two</li>
+      <li>
+        Three
+        <ul>
+          <li>Three A</li>
+          <li>
+            Three B
+            <ul>
+              <li>Three B 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <div class="viewportbox"></div>
   </body>
 </html>
