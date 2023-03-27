@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .ul1 li {
+        color: red;
+      }
+      .ul2 > li {
+        color: red;
+      }
+
+      /* Selects the p element immediately following h2 */
+      h1 + h2 {
+        color: blue;
+      }
+
+      /* Selects all p elements that follow h2 */
+      h3 ~ p {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="ul1">
+      <li>Item 1</li>
+      <ul>
+        <li>Item 2.1</li>
+        <li>Item 2.2</li>
+      </ul>
+      <li>Item 3</li>
+    </ul>
+
+    <ul class="ul2">
+      <li>Item 1</li>
+      <ul>
+        <li>Item 2.1</li>
+        <li>Item 2.2</li>
+      </ul>
+      <li>Item 3</li>
+    </ul>
+
+    <h1>Heading</h1>
+    <h2>Paragraph 1</h2>
+    <h2>Paragraph 2</h2>
+
+    <h3>Heading</h3>
+    <p>Paragraph 1</p>
+    <p>Paragraph 2</p>
+  </body>
+</html>
