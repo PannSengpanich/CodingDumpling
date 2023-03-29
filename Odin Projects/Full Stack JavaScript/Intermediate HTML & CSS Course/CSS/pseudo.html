@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .first p:first-child {
+        color: red;
+      }
+      .first p:last-child {
+        color: green;
+      }
+      .first a:link,
+      a:visited {
+        color: pink;
+        font-weight: bold;
+      }
+      a:hover {
+        color: grey;
+      }
+      .second p:first-child::first-line {
+        color: blue;
+      }
+      .second p::first-letter {
+        font-size: 30px;
+      }
+      .third p::after {
+        content: " World";
+      }
+      .third p::before {
+        content: "...";
+      }
+      .fourth input[type="text"]:focus {
+        border-color: blue;
+        outline: none;
+      }
+      .fourth button:active {
+        background-color: red;
+        color: white;
+      }
+      .fourth button:before {
+        content: "button";
+      }
+      .fourth button:active::before {
+        content: "click";
+      }
+      .fifth-p:nth-child(5) {
+        color: red;
+      }
+      .fifth-p:nth-child(3n) {
+        color: green;
+      }
+      .fifth-p:nth-child(4n + 4) {
+        color: blue;
+      }
+      .sixth [data="ppp"] {
+        color: brown;
+      }
+      .sixth [class^="aus"] {
+        color: Green;
+      }
+      .sixth [class$="ia"] {
+        font-size: 36px;
+      }
+      .sixth [class*="ill"] {
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="first">
+      <p>Hi</p>
+      <p>Hi</p>
+      <a href="">Hover</a>
+      <p>Hi</p>
+    </div>
+    <div class="second">
+      <p>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+        centuries, but also the leap into electronic typesetting, remaining
+        essentially unchanged. It was popularised in the 1960s with the release
+        of Letraset sheets containing Lorem Ipsum passages, and more recently
+        with desktop publishing software like Aldus PageMaker including versions
+        of Lorem Ipsum.
+      </p>
+      <p>
+        Maecenas sodales rutrum ex, ut rutrum lacus finibus sit amet. Phasellus
+        ante mauris, tempor vitae dui in, euismod pulvinar est. Aliquam erat
+        volutpat. Nullam in nisl nibh. Vivamus nec sapien eu nisl mattis
+        imperdiet quis a nisl. Curabitur in commodo sem, in accumsan nulla.
+        Nullam vestibulum, orci eget semper venenatis, sapien lorem molestie
+        nulla, id tristique ligula lacus sit amet metus. Cras sit amet rutrum
+        ligula, id convallis risus. Vivamus vel tortor nec nibh faucibus
+        volutpat eget sit amet purus. Donec eu lacus sit amet enim tempor mollis
+        ac sed mauris. In sed placerat purus.
+      </p>
+    </div>
+    <div class="third"><p>Hello</p></div>
+    <div class="fourth"><input type="text" /> <button></button></div>
+    <div class="fifth">
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+      <p class="fifth-p">qwerty</p>
+    </div>
+    <div class="sixth">
+      <p data="ppp">Hi</p>
+      <p class="austria">austria</p>
+      <p class="australia">australia</p>
+      <p class="bill">bill</p>
+      <p class="jill">jill</p>
+      <p class="silly">silly</p>
+      <p class="ill">ill</p>
+    </div>
+  </body>
+</html>
