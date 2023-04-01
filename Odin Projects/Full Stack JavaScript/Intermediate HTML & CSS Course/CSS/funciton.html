@@ -5,6 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      :root {
+        --height: 500px; /* can be defined and used throughout your CSS to store and reuse values */
+      }
+      body {
+        display: flex;
+      }
+      .box1 {
+        height: 500px;
+        width: 500px;
+        background-color: bisque;
+      }
+      .box2 {
+        height: var(--height);
+        width: calc(1000px - var(--height)); /* 1000px - --height */
+        background-color: aquamarine;
+      }
+      .image1 {
+        width: min(
+          150px,
+          200px,
+          300px,
+          30em,
+          100%
+        ); /* select the minimum value */
+        height: max(
+          150px,
+          200px,
+          300px,
+          30em,
+          100%
+        ); /* select the maximum value */
+      }
+      .text1 {
+        font-size: clamp(
+          320px,
+          200px,
+          60rem
+        ); /*clamp(smallest,ideal,largest) */
+      }
+    </style>
   </head>
-  <body></body>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="image1"></div>
+    <div class="text1">Hi</div>
+  </body>
 </html>
