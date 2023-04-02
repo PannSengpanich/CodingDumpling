@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      :root {
+        --bgc: green;
+        --border: 3px black solid;
+      }
+      body {
+        display: flex;
+      }
+      .box1,
+      .box2 {
+        background-color: var(--bgc);
+        border: var(--border);
+        border-radius: var(--undefined-br, 10px); /* fallback value */
+        height: 100px;
+        width: 100px;
+      }
+      .container {
+        --bgc: pink;
+        --border: 3px black solid;
+        display: flex;
+        border: var(--border);
+        padding: 20px;
+        width: auto;
+      }
+      .box3 {
+        background-color: var(--bgc);
+        border: var(--border);
+        border-radius: var(--undefined-br, 10px); /* fallback value */
+        height: 100px;
+        width: 100px;
+      }
+      .box4 {
+        background-color: var(--bgc);
+        border: var(--border);
+        border-radius: var(--undefined-br, 10px); /* fallback value */
+        height: 100px;
+        width: 100px;
+        --bgc: red;
+      }
+      .box4-1 {
+        background-color: var(--bgc);
+        border: var(--border);
+        border-radius: var(--undefined-br, 10px); /* fallback value */
+        height: 50px;
+        width: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="container">
+      <div class="box3"></div>
+      <div class="box4"><div class="box4-1"></div></div>
+    </div>
+  </body>
+</html>
