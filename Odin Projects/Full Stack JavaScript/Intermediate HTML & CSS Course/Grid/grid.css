@@ -9,8 +9,23 @@
   display: grid;
   grid-template-columns: 50px 50px 50px;
   grid-template-rows: 50px 50px;
-  /*?: grid-template: 50px 50px / 50px 50px 50px; = grid-template: rows / columns */
+  /*? grid-template: 50px 50px / 50px 50px 50px; = grid-template: rows / columns */
+  /*? cannot take -auto properties, use grid: instead */
+
+  /*? grid: [row1-start] "header header header" 1fr [row1-end]
+  /*?       [row2-start] "footer footer footer" 25px [row2-end]
+  /*?       / auto 50px auto;
+  /*? =
+  /*?
+  /*? grid-template-areas: 
+  /*?   "header header header"
+  /*?   "footer footer footer";
+  /*? grid-template-rows: [row1-start] 1fr [row1-end row2-start] 25px [row2-end];
+  /*? grid-template-columns: auto 50px auto;    
+
+  */
 }
+
 .container3 {
   margin: 20px;
   display: grid;
@@ -19,6 +34,7 @@
   grid-auto-rows: 50px;
   column-gap: 10px;
   row-gap: 20px;
+  /*? gap: row-gap / column-gap */
 }
 [class^="container"] > div {
   border: 1px solid blue;
@@ -50,14 +66,14 @@ auto – indicates auto-placement, an automatic span, or a default span of one
 !grid-column-start: <number> | <name> | span <number> | span <name> | auto;
 
 */
-.item-a {
+.item-5a {
   background-color: green;
   grid-column-start: 2; /* <line> */
   grid-column-end: five;
   grid-row-start: row1-start;
   grid-row-end: 3;
 }
-.item-b {
+.item-5b {
   background-color: grey;
   grid-column-start: first;
   grid-column-end: span 3;
@@ -73,7 +89,7 @@ auto – indicates auto-placement, an automatic span, or a default span of one
 ? grid-area: third-line / first / last-line / 4;
 */
 }
-.item-c {
+.item-5c {
   background-color: black;
   grid-row-start: row2-start;
   grid-column-start: 3;
@@ -86,8 +102,8 @@ auto – indicates auto-placement, an automatic span, or a default span of one
   grid-template: 60px 60px 60px 60px 60px / 60px 60px 60px 60px 60px;
   background-color: lightblue;
 
-  /*? naming each cell */
-  grid-template-areas:
+  /*? naming each area */
+  grid-template-areas: /* only string */
     "living-room living-room living-room living-room living-room"
     "living-room living-room living-room living-room living-room"
     "bedroom bedroom bathroom kitchen kitchen"
@@ -119,4 +135,40 @@ auto – indicates auto-placement, an automatic span, or a default span of one
 
 #closet {
   grid-area: closet;
+}
+
+.container7 {
+  height: 500px;
+  width: 100vw;
+  display: grid;
+  grid-template: repeat(3, 100px) / repeat(3, 100px);
+  justify-content: center;
+  align-content: end;
+  /*? place-content: align-content / justify-content */
+  justify-items: stretch;
+  align-items: center;
+  /*? place-items: align items / justify-items */
+}
+.container7 > .item-7a {
+  height: 30px;
+  width: 30px;
+  background-color: bisque;
+  justify-self: center; /* horizontally */
+  align-self: start; /* vertially */
+  /*? place-self: align-self / justify-self */
+}
+.container7 > div {
+  height: 30px;
+  background-color: grey;
+}
+/*? grid-auto-flow: row (auto-placement algorithm to fill in each row in turn, adding new rows as necessary)
+/*?                 column (tells the auto-placement algorithm to fill in each column in turn, adding new columns as necessary)
+/*?                 dense (tells the auto-placement algorithm to attempt to fill in holes earlier in the grid if smaller items come up later)
+*/
+.container8 {
+  height: 500px;
+  width: 500px;
+  display: grid;
+  grid-template-columns: minmax(100px, 10vw) 3fr 50px; /*minmax() uses larger one */
+  grid-template-rows: masonry;
 }
