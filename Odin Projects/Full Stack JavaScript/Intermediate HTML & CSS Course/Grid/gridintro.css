@@ -1,6 +1,6 @@
 .container1 {
   margin: 20px;
-  display: grid; /*! inline-grid = grid where it doesnt take all space */
+  display: grid;
   grid-template-columns: 100px 50px;
   grid-template-rows: 70px 50px;
 }
@@ -42,7 +42,7 @@
 .container4 {
   margin: 20px;
   display: grid;
-  grid-template-columns: 1fr 50px 1fr; /*! fr = free space */
+  grid-template-columns: 1fr 50px 1fr; /*! fr = fraction unit ( width or height of the container that is available for the items to occupy.) */
   grid-template-rows: 1fr 50px;
 }
 
@@ -98,7 +98,7 @@ auto – indicates auto-placement, an automatic span, or a default span of one
 
 .container6 {
   margin: 40px;
-  display: inline-grid;
+  display: inline-grid; /*! inline-grid = grid where it doesnt take all space */
   grid-template: 60px 60px 60px 60px 60px / 60px 60px 60px 60px 60px;
   background-color: lightblue;
 
