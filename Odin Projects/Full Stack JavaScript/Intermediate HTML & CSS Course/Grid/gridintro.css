@@ -1,3 +1,6 @@
+[class^="container"] > div {
+  border: 1px solid blue;
+}
 .container1 {
   margin: 20px;
   display: grid;
@@ -35,9 +38,6 @@
   column-gap: 10px;
   row-gap: 20px;
   /*? gap: row-gap / column-gap */
-}
-[class^="container"] > div {
-  border: 1px solid blue;
 }
 .container4 {
   margin: 20px;

@@ -35,7 +35,10 @@
 .container5 {
   display: grid;
   grid-template-rows: repeat(2, 100px);
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /*! ส่วนมากใช้ด้วยกัน */
 
   /*! repeat(auto-fit, minmax(150px, 1fr))
   /*! 1. #cells = width / min of (150px,1fr) = 150px
