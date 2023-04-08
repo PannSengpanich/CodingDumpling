@@ -1,6 +1,6 @@
-let a = [1, 2, 3];
-let b = [4, 5, 6];
-let c = [1, 2, 3, 4];
+const a = [1, 2, 3];
+const b = [4, 5, 6];
+const c = [1, 2, 3, 4];
 console.log([...a, ...b]);
 console.log("Pann Sengpanich".split(""));
 console.log(["Pann", "Sengpanich"].join());
@@ -8,7 +8,7 @@ console.log("pann sengpanich"[0]);
 console.log(c.length);
 console.log("'".toLowerCase());
 
-let d = [1, 2, 3];
+const d = [1, 2, 3];
 console.log(d.slice());
 console.log([5, 3, 23, 3].sort((a, b) => a - b));
 
@@ -29,12 +29,12 @@ Animal.prototype = {
 
 Dog.prototype = Object.create(Animal.prototype);
 
-let aa = new Dog("aa", "aaa");
+const aa = new Dog("aa", "aaa");
 
-let ownProps_a = [];
-let prototypeProps_a = [];
+const ownProps_a = [];
+const prototypeProps_a = [];
 
-for (let property in c) {
+for (const property in c) {
   if (a.hasOwnProperty(property)) {
     ownProps_a.push(property);
   } else {
@@ -44,9 +44,9 @@ for (let property in c) {
 
 console.log(ownProps_a, prototypeProps_a);
 
-let e = [1, 2, 3];
-let f = e;
-let g = [...e];
+const e = [1, 2, 3];
+const f = e;
+const g = [...e];
 console.log(f, g);
 
 console.log(
@@ -63,7 +63,7 @@ console.log("A".charCodeAt());
 console.log(/\d{3}-\d{3}-\d{4}/.test("555-555-5555"));
 console.log(Math.floor(2 / 3));
 
-let value = [
+const value = [
   { name: "PENNY", val: 0.01 },
   { name: "NICKEL", val: 0.05 },
   { name: "DIME", val: 0.1 },
