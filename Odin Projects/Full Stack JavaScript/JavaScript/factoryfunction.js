@@ -115,8 +115,8 @@ var Module1 = (function () {
     console.log("anotherpublicMethod " + _privateMethod1());
   };
   return {
-    publicMethod1: publicMethod1,
-    anotherPublicMethod1: anotherPublicMethod1,
+    publicMethod1,
+    anotherPublicMethod1,
   };
 })();
 
@@ -138,8 +138,8 @@ const templateMethod = function () {
     console.log("anotherpublicMethod " + _privateMethod2());
   };
   return {
-    publicMethod2: publicMethod2,
-    anotherPublicMethod2: anotherPublicMethod2,
+    publicMethod2,
+    anotherPublicMethod2,
   };
 };
 Module2 = templateMethod();

@@ -90,10 +90,11 @@ console.log(
   "------------------------------------------------------------------------------------------------",
 );
 
-//! .call() & this
+//! .call(),.bind() & this
 
 //TODO: THIS
 
+//? EX.1
 var myFunction = function () {
   console.log(this); // this = global, [object Window]
 };
@@ -116,22 +117,7 @@ var toggleNav = function () {
 };
 // nav.addEventListener("click", toggleNav, false);
 
-//TODO: CALL myFunction.call(scope) ---> any references to "this" inside the myFunction will refer to the scope object, rather than the global object
-
-const person = {
-  fullName: function (city, country) {
-    return this.firstName + " " + this.lastName + "," + city + "," + country;
-  },
-};
-
-const person1 = {
-  firstName: "John",
-  lastName: "Doe",
-};
-
-console.log(person.fullName.call(person1, "Oslo", "Norway")); //uses person1 as this
-//John Doe,Oslo,Norway
-
+//? EX.2
 const numbers = {
   numberA: 5,
   numberB: 10,
@@ -148,3 +134,24 @@ const numbers = {
   },
 };
 console.log(numbers.sum());
+
+//TODO: CALL myFunction.call(scope) ---> any references to "this" inside the myFunction will refer to the scope object, rather than the global object and call f().
+//TODO: BIND myFunction.bind(scope) ---> just like call.() but doesnt immediately calls function, it create new function with the specified this value that can be called later.
+
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  },
+};
+const person2 = {
+  firstName: "Leeroy",
+  lastNameee: "Jenkins",
+};
+
+const fullName1 = person.fullName.bind(person2);
+console.log(fullName1()); // John Doe (calls function again)
+
+const fullName2 = person.fullName.call(person2);
+console.log(fullName2); // John Doe (no need to call)
