@@ -1,10 +1,13 @@
 const myObject = {
   property: "Value!",
   otherProperty: 77,
-  obnoxiousproperty: function () {}, // = obnoxiousproperty(): {};
+  obnoxiousproperty: function () {
+    console.log("hello");
+  }, // = obnoxiousproperty(): {};
 };
 const variable = "property";
-console.log(myObject.variable, myObject[variable], myObject.obnoxiousproperty);
+console.log(myObject.variable, myObject[variable]);
+myObject.obnoxiousproperty();
 console.log(
   "------------------------------------------------------------------------------------------------",
 );
@@ -88,6 +91,33 @@ console.log(
 );
 
 //! .call() & this
+
+//TODO: THIS
+
+var myFunction = function () {
+  console.log(this); // this = global, [object Window]
+};
+myFunction();
+
+var myObject1 = {};
+myObject1.myMethod = function () {
+  console.log(this); // this = Object { myObject }
+};
+
+// var nav = document.querySelector(".nav"); // <nav class="nav">
+var toggleNav = function () {
+  const that = this;
+  console.log(this); // <nav> element
+  console.log(that); // <nav> element
+  setTimeout(function () {
+    console.log(this); // [object Window] it is just a callback function, not a method in toggleNav
+    console.log(that); // <nav> element
+  }, 1000);
+};
+// nav.addEventListener("click", toggleNav, false);
+
+//TODO: CALL myFunction.call(scope) ---> any references to "this" inside the myFunction will refer to the scope object, rather than the global object
+
 const person = {
   fullName: function (city, country) {
     return this.firstName + " " + this.lastName + "," + city + "," + country;
@@ -106,13 +136,15 @@ const numbers = {
   numberA: 5,
   numberB: 10,
   sum: function () {
+    // properties of numbers
     console.log(this === numbers); // => true
     function calculate() {
-      console.log(this === numbers); // => true
+      // not
+      console.log(this === numbers);
       return this.numberA + this.numberB;
     }
-    // return calculate();            this in function refer to global object -> undefined
-    // return calculate.call(this);   by setting .call(this) this refer to the numbers -> 15
+    // return calculate();  this in function refer to global object -> false undefined
+    // return calculate.call(this); by setting .call(this) this refer to the 'numbers' -> true 15
   },
 };
 console.log(numbers.sum());
