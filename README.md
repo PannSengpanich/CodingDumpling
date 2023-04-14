@@ -1,2 +1,2 @@
 # CodingDumpling
-My code studying progress (may not cover all of my practice)
+My code studying progress (may not cover all of my practices)
