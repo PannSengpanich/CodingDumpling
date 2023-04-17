@@ -53,11 +53,11 @@ const player1 = new Player("steve", "X");
 const player2 = new Player("also steve", "O");
 const warriorplayer1 = new WarriorPlayer("Viking", "red", "sword");
 const mageplayer1 = new MagePlayer("Healer", "red", "healing spell");
-player1.sayName();
-player2.sayName();
-player1.greet();
-warriorplayer1.greet();
-console.log(warriorplayer1.attack(), mageplayer1.cast());
+player1.sayName(); //steve
+player2.sayName(); //also steve
+player1.greet(); //steve say hello
+warriorplayer1.greet(); //Viking say hello
+console.log(warriorplayer1.attack(), mageplayer1.cast()); // Viking attacks with the sword. Healer casts healing spell.
 console.log(
   Object.getPrototypeOf(player1),
   Object.getPrototypeOf(warriorplayer1),
