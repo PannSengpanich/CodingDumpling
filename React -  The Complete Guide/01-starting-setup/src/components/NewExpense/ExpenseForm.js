@@ -41,7 +41,6 @@ const ExpenseForm = (props) => {
     setEnteredAmount("");
     setEnteredDate("");
   };
-  const hideForm = () => {};
 
   return (
     <form onSubmit={submitHandler}>
