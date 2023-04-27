@@ -13,7 +13,7 @@
   grid-template-columns: 50px 50px 50px;
   grid-template-rows: 50px 50px;
   /*? grid-template: 50px 50px / 50px 50px 50px; = grid-template: rows / columns */
-  /*? cannot take -auto properties, use grid: instead */
+  /*? cannot take -auto- properties, use grid: instead */
 
   /*? grid: [row1-start] "header header header" 1fr [row1-end]
   /*?       [row2-start] "footer footer footer" 25px [row2-end]
