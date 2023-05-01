@@ -1,6 +1,21 @@
+//!Callbacks
+function sum(a, b) {
+  console.log(a + b);
+}
+
+function processNumberInput(callback) {
+  let x = 5;
+  let y = 7;
+  callback(x, y);
+}
+
+processNumberInput(sum);
+
 //!Promises (asynchronous operation) (use to fetch data and read files)
 
-//TODO: order: sync ---> async(resolve,reject ---> finally)
+//? .then() .catch() .finally()
+
+//TODO: order of execution: sync ---> async(resolve,reject ---> finally)
 let p1 = new Promise((resolve, reject) => {
   let a = 1000 + 1000;
   if (a == 2000) {
@@ -50,3 +65,21 @@ Promise.race([p1, p2]) //   triggers as soon as any promise in the array is reso
 //* the asynchronous code will be executed after
 //* the synchronous code has finished executing
 //* ex. console.log() is sync , resolve/reject is async
+
+//? await (same as .then but less code )
+// Using .then():
+fetch("https://example.com/data.json")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error(error));
+
+// Using await:
+async function fetchData() {
+  try {
+    const response = await fetch("https://example.com/data.json");
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
+}
