@@ -11,11 +11,12 @@ function processNumberInput(callback) {
 
 processNumberInput(sum);
 
-//!Promises (asynchronous operation) (use to fetch data and read files)
+//!Promises (object contains both the producing code and calls to the consuming code)
+//!(asynchronous operation)
+//!(use to fetch data and read files)
 
-//? .then() .catch() .finally()
+//? .then() .catch() .finally() (use to handle result of a Promise)
 
-//TODO: order of execution: sync ---> async(resolve,reject ---> finally)
 let p1 = new Promise((resolve, reject) => {
   let a = 1000 + 1000;
   if (a == 2000) {
@@ -47,8 +48,8 @@ console.log(p2); // Promise { <rejected> 'Failed' }
 Promise.all([p1, p2])
   .then(function (result) {
     // result is values from resolve
-    console.log(`Both promises resolved + ${result}`);
-    console.log(result);
+    console.log(`Both promises resolved + ${result}`); // Both promises resolved + p1 Succeed,p2 Succeed
+    console.log(result); // [ 'p1 Succeed', 'p2 Succeed' ]
   })
   .catch(function (err) {
     // rejected immediately after the first rejected
@@ -57,29 +58,22 @@ Promise.all([p1, p2])
 
 Promise.race([p1, p2]) //   triggers as soon as any promise in the array is resolved or rejected
   .then(function (result) {
-    console.log(`Both promises resolved + ${result}`);
+    console.log(`First promise resolved + ${result}`); // Both promises resolved + p1 Succeed
   })
   .catch(function (err) {
     console.log(`One or more promises was rejected + ${err}`);
   });
-//* the asynchronous code will be executed after
-//* the synchronous code has finished executing
-//* ex. console.log() is sync , resolve/reject is async
 
-//? await (same as .then but less code )
-// Using .then():
-fetch("https://example.com/data.json")
-  .then((response) => response.json())
-  .then((data) => console.log(data))
-  .catch((error) => console.error(error));
-
-// Using await:
-async function fetchData() {
-  try {
-    const response = await fetch("https://example.com/data.json");
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error(error);
-  }
+async function example() {
+  console.log("Before await1"); //sync
+  console.log("Before await2");
+  await Promise.resolve();
+  console.log("After await1"); //async
+  await Promise.resolve();
+  console.log("After await2"); //async
 }
+
+example();
+console.log("End of script"); //sync
+
+//* ex. console.log() is sync , resolve/reject is async

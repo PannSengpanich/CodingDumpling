@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="#" />
+    <br />
+    <input type="text" />
+    <button>Change Gif</button>
+    <h1 class="error-text"></h1>
+    <script>
+      const img = document.querySelector("img");
+      const btn = document.querySelector("button");
+      const input = document.querySelector("input");
+      const errorText = document.querySelector(".error-text");
+      async function getGif() {
+        try {
+          const response = await fetch(
+            `https://api.giphy.com/v1/gifs/translate?api_key=OaFK1jhEMexwtWqVbgqCQ6KOIehN9Ahc&s=${input.value}`,
+            { mode: "cors" }
+          );
+          const gif = await response.json();
+          img.src = gif.data.images.original.url;
+          errorText.innerHTML = "";
+          input.value = "";
+        } catch {
+          errorText.innerHTML = "Can't find gif you are looking for";
+          input.value = "";
+        }
+      }
+      btn.addEventListener("click", () => getGif());
+    </script>
+  </body>
+</html>
