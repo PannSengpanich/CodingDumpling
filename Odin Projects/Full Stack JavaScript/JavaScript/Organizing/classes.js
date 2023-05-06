@@ -96,7 +96,7 @@ class Example {
   }
 }
 
-Example.staticMethod(); // This is a static method
+Example.staticMethod(); // This is a static method (doesn't need new keyword to call)
 
 //TODO: Private Class
 

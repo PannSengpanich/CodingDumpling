@@ -154,7 +154,7 @@ var sayHello = function (name) {
     console.log(text);
   };
 };
-sayHello("Bob"); // nothing happens cuz it return function but not execute it
+sayHello("Bob"); // nothing happens cuz it return function but not execute it yet
 sayHello("Bob")(); // Hello, Bob
 
 function outerFunction() {
