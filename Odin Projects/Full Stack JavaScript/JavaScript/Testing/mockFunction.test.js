@@ -6,9 +6,6 @@ test("forEach mock function", () => {
   const mockCallback = jest.fn((x) => 42 + x); //create mock function with parameter
   forEach([0, 1], mockCallback);
 
-  //* mockCallback.mock.calls = [[0],[1]]
-  //* mockCallback.mock.results = [{ type: 'return', value: 42 }, { type: 'return', value: 44 }]
-
   //* mockCallback =
   // [Function: mockConstructor] {
   // _isMockFunction: true,
@@ -32,11 +29,11 @@ test("forEach mock function", () => {
   // }
 
   //* mockCallback.mock =
-  // {calls: [ [ 0 ], [ 2 ] ],
+  //! {calls: [ [ 0 ], [ 2 ] ],
   // contexts: [ undefined, undefined ],
   // instances: [ undefined, undefined ],
   // invocationCallOrder: [ 3, 4 ], //?  order in which the functions or mocks are called during the execution of tests
-  // results: [ { type: 'return', value: 42 }, { type: 'return', value: 44 } ],
+  //! results: [ { type: 'return', value: 42 }, { type: 'return', value: 44 } ],
   // lastCall: [ 2 ]}
 
   expect(mockCallback).toHaveBeenCalled();
