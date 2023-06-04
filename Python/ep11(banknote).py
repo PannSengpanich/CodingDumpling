@@ -51,5 +51,10 @@ if (x >= 50):
     fifty = x // 50
     print("50 B : ", fifty)
     x = x % 50
+    
+if (x >= 20):
+    twenty = x// 20
+    print("20 B :" , twenty)
+    x = x % 20
 
 print(x)

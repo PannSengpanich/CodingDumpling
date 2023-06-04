@@ -2,5 +2,9 @@
   "liveServer.settings.ChromeDebuggingAttachment": false,
   "liveServer.settings.CustomBrowser": "chrome",
   "liveServer.settings.AdvanceCustomBrowserCmdLine": "",
-  "liveServer.settings.port": 5502
+  "liveServer.settings.port": 5502,
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+  },
+  "python.formatting.provider": "none"
 }
