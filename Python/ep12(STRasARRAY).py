@@ -4,6 +4,7 @@ print(name.upper())
 print(name.lower())
 print(name.capitalize())
 name = name.replace("Seng", "Sang")
+print(name.split())
 print(name)
 
 chk = "Sang" in name

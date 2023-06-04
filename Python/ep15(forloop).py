@@ -27,3 +27,7 @@ for i in range(1, 11):
     print("loop ที่ :", i, "ค่าผลรวม :", sum)
 avg = sum/10
 print("ผลรวม :", sum, "ค่เปลี่ย :", avg)
+
+
+
+    
