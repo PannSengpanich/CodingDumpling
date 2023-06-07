@@ -1,5 +1,13 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  useRoutes,
+  NavLink,
+  useLocation,
+} from "react-router-dom";
 import Intro from "./Intro";
 import App from "./App";
 import Profile from "./Profile";
@@ -15,7 +23,9 @@ const RouteSwitch = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/intro">Intro</Link>
+            <Link to="/intro" state="hi">
+              Intro
+            </Link>
           </li>
           <li>
             <Link to="/">App</Link>
@@ -24,11 +34,18 @@ const RouteSwitch = () => {
             <Link to="/profile">Profile</Link>
           </li>
           <li>
-            <Link to="/books">BookList</Link>
+            <NavLink
+              style={({ isActive }) => {
+                return isActive ? { color: "red" } : {};
+              }}
+              to="/books">
+              {({ isActive }) => {
+                return isActive ? "Active Booklist" : "Booklist";
+              }}
+            </NavLink>
           </li>
         </ul>
       </nav>
-
       <Routes>
         {/*component that should be rendered when we navigate to this url.*/}
         <Route path="/intro" element={<Intro />}></Route>
