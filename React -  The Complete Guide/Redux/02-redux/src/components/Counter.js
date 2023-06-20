@@ -1,5 +1,5 @@
 import Component from "react";
-import { counterActions1, counterActions2, combineCounter } from "../store";
+import { counterActions } from "../store";
 import classes from "./Counter.module.css";
 
 // useSelector: allows functional components to access data from the Redux store's state
@@ -16,25 +16,21 @@ const Counter = () => {
   //dispatch an action to our redux store
   const dispatch = useDispatch();
 
-  const counter1 = useSelector((state) => state.counter1.counter);
-  const counter2 = useSelector((state) => state.counter2.counter);
+  const counter = useSelector((state) => state.counter);
 
-  const show = useSelector((state) => state.counter1.showCounter);
+  const show = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch(counterActions1.increment());
+    dispatch(counterActions.increment());
   };
   const increaseHandler = () => {
-    dispatch(counterActions1.increase(5)); // {type: SOME_UNIQUE_IDENTIFIER, payload: 5 }
+    dispatch(counterActions.increase(5)); // {type: SOME_UNIQUE_IDENTIFIER, payload: 5 }
   };
   const decrementHandler = () => {
-    dispatch(counterActions1.decrement());
+    dispatch(counterActions.decrement());
   };
   const toggleCounterHandler = () => {
-    dispatch(counterActions1.toggleCounter());
-  };
-  const doubleHandler = () => {
-    dispatch(counterActions2.double());
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
@@ -42,9 +38,7 @@ const Counter = () => {
       <h1>Redux Counter</h1>
       {show ? (
         <div>
-          <div className={classes.value}>{counter1}</div>
-          <div className={classes.value}>{counter2}</div>
-          <div className={classes.value}>{combineCounter}</div>
+          <div className={classes.value}>{counter}</div>
         </div>
       ) : (
         <></>
@@ -53,7 +47,6 @@ const Counter = () => {
         <button onClick={incrementHandler}>Increment</button>
         <button onClick={increaseHandler}>Increase by 5</button>
         <button onClick={decrementHandler}>Decrement</button>
-        <button onClick={doubleHandler}>Double</button>
       </div>
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
     </main>
