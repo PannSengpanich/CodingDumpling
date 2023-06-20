@@ -1,9 +1,14 @@
 import { createSlice, configureStore, combineReducers } from "@reduxjs/toolkit";
 import { composeWithDevTools } from "redux-devtools-extension";
 
-const initialState1 = { counter: 0, showCounter: true };
-const initialState2 = { counter: 5, modifiedCounter: false };
-
+const initialState1 = { counter: 1, showCounter: true };
+export let combineCounter = 1;
+function addCombineCounter() {
+  combineCounter++;
+}
+function doubleCombineCounter() {
+  combineCounter = combineCounter * 2;
+}
 // can mutate the state unlike using reducer function
 const counterSlice1 = createSlice({
   name: "counter1",
@@ -11,7 +16,9 @@ const counterSlice1 = createSlice({
   reducers: {
     // receive current state and action as first and second parameter
     increment(state) {
+      addCombineCounter();
       state.counter++;
+      console.log(combineCounter);
     },
     decrement(state) {
       state.counter--;
@@ -26,10 +33,11 @@ const counterSlice1 = createSlice({
 });
 const counterSlice2 = createSlice({
   name: "counter2",
-  initialState: initialState2,
+  initialState: initialState1,
   reducers: {
     // receive current state and action as first and second parameter
     double(state) {
+      doubleCombineCounter();
       state.counter = state.counter * 2;
     },
     half(state) {
