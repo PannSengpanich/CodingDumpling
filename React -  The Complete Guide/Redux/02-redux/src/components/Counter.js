@@ -1,5 +1,5 @@
 import Component from "react";
-import { counterActions } from "../store";
+import { counterActions } from "../store/counter";
 import classes from "./Counter.module.css";
 
 // useSelector: allows functional components to access data from the Redux store's state
@@ -16,9 +16,9 @@ const Counter = () => {
   //dispatch an action to our redux store
   const dispatch = useDispatch();
 
-  const counter = useSelector((state) => state.counter);
+  const counter = useSelector((state) => state.counter.counter);
 
-  const show = useSelector((state) => state.showCounter);
+  const show = useSelector((state) => state.counter.showCounter);
 
   const incrementHandler = () => {
     dispatch(counterActions.increment());
