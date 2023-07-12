@@ -6,18 +6,17 @@ import App from "./App";
 import { MsalProvider } from "@azure/msal-react";
 import { Configuration, PublicClientApplication } from "@azure/msal-browser";
 
-const configuration: Configuration = {
+const configuration = {
   auth: {
     clientId: "client-id",
   },
 };
 
-const pca = new PublicClientApplication(configuration);
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const pca = new PublicClientApplication(configuration);
+
 root.render(
   <>
-    {/* all parts of app that require authentication must be wrapped in the MsalProvider component */}
-    {/* All components underneath MsalProvider will have access to the PublicClientApplication instance via context as well as all hooks and components provided by @azure/msal-react.*/}
     <MsalProvider instance={pca}>
       <App />
     </MsalProvider>
