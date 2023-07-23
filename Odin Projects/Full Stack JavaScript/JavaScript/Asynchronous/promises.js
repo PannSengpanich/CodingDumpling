@@ -37,7 +37,7 @@ p1.then((message) => {
 console.log(p1); // Promise { 'Succeed' }
 
 let p2 = new Promise((resolve, reject) => {
-  let a = 2 + 2;
+  let a = 2 + 3;
   if (a == 4) {
     resolve("p2 Succeed");
   } else reject("p2 Failed");
