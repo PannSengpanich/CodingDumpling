@@ -1,5 +1,4 @@
 import MeetupList from "../components/meetups/MeetupList";
-
 const DUMMY_MEETUPS = [
   {
     id: "m1",
@@ -18,7 +17,28 @@ const DUMMY_MEETUPS = [
     description: "this is a second meetup",
   },
 ];
-function HomePage() {
-  return <MeetupList meetups={DUMMY_MEETUPS}></MeetupList>;
+
+//to prepare props for this page
+export async function getStaticProps() {
+  // fetch data from an API, read data from some files
+
+  //always return something
+  return {
+    //set as props for this page component
+    props: {
+      meetups: DUMMY_MEETUPS,
+    },
+  };
 }
+
+function HomePage(props) {
+  //* no longer need this code
+  // const [loadedMeetups, setLoadedMeetups] = useState([]);
+  // useEffect(() => {
+  //   setLoadedMeetups(DUMMY_MEETUPS);
+  // }, []);
+
+  return <MeetupList meetups={props.meetups}></MeetupList>;
+}
+
 export default HomePage;
