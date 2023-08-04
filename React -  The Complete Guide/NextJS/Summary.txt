@@ -6,6 +6,8 @@ Forms of Pre-Rendering
                                 - No flickering loading state
                                 - uses getServerSideProps()
                                 - regenerated every request
+                                - (most up to date)
+                               
 
 
 (should use)
@@ -14,9 +16,12 @@ Forms of Pre-Rendering
                                   - page is pre-render when build on prod instead of when request reaches the server.
                                   - uses getStaticProps(), getStaticPaths() (async function)
                                     (will executed during build process, not on client side)
+                                  - (not up to date) 
 
 
+(should use)
 3. Incremental Static Regeneration (ISR) = SSG + revalidate
                                          - will be regenerated every x seconds and replaces old pre-generated page (data will never older than x sec)
                                          - dont have to rebuild, redeploy all the time
                                          - faster than SSR
+                                         - (up to date)
