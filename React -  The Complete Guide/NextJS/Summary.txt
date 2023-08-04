@@ -7,6 +7,7 @@ Forms of Pre-Rendering
                                 - uses getServerSideProps()
                                 - regenerated every request
                                 - (most up to date)
+                                ex. Reddit, Facebook
                                
 
 
@@ -17,6 +18,7 @@ Forms of Pre-Rendering
                                   - uses getStaticProps(), getStaticPaths() (async function)
                                     (will executed during build process, not on client side)
                                   - (not up to date) 
+                                  ex. Blog
 
 
 (should use)
@@ -25,3 +27,4 @@ Forms of Pre-Rendering
                                          - dont have to rebuild, redeploy all the time
                                          - faster than SSR
                                          - (up to date)
+                                         ex. Product Page (Apple page)
