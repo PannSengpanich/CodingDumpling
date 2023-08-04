@@ -8,9 +8,7 @@ import MeetupList from "../components/meetups/MeetupList";
 export async function getStaticProps() {
   // fetch data from an API, read data from some files
 
-  const client = await MongoClient.connect(
-    "mongodb+srv://dbUser:hvaIX5bXYdyXJbW2@cluster0.vpq0rkv.mongodb.net/",
-  );
+  const client = await MongoClient.connect("");
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
 

@@ -4,9 +4,7 @@ import Head from "next/head";
 //! fetches all the meetup IDs and return as paths
 //! needed if uses getStaticProps
 export async function getStaticPaths() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://dbUser:hvaIX5bXYdyXJbW2@cluster0.vpq0rkv.mongodb.net/",
-  );
+  const client = await MongoClient.connect("");
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
 
@@ -29,9 +27,7 @@ export async function getStaticProps(context) {
 
   //get ID from URL
   const meetupId = context.params.meetupId;
-  const client = await MongoClient.connect(
-    "mongodb+srv://dbUser:hvaIX5bXYdyXJbW2@cluster0.vpq0rkv.mongodb.net/",
-  );
+  const client = await MongoClient.connect("");
   const db = client.db();
   const meetupsCollection = db.collection("meetups");
 
@@ -64,8 +60,7 @@ function MeetupDetails(props) {
         image={props.meetupData.image}
         title={props.meetupData.title}
         address={props.meetupData.address}
-        description={props.meetupData.description}
-      ></MeetupDetail>
+        description={props.meetupData.description}></MeetupDetail>
     </>
   );
 }

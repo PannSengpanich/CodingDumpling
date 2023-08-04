@@ -9,9 +9,7 @@ async function handler(req, res) {
     const data = req.body;
 
     const { title, image, address, description } = data;
-    const client = await MongoClient.connect(
-      "mongodb+srv://dbUser:hvaIX5bXYdyXJbW2@cluster0.vpq0rkv.mongodb.net/",
-    );
+    const client = await MongoClient.connect("");
     const db = client.db();
     const meetupsCollection = db.collection("meetups");
     const result = await meetupsCollection.insertOne(data);
