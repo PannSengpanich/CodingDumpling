@@ -1,35 +1,50 @@
-import MeetupList from "../components/meetups/MeetupList";
-const DUMMY_MEETUPS = [
-  {
-    id: "m1",
-    title: "meetup1",
-    image:
-      "https://www.shutterstock.com/image-photo/funny-dog-licking-lips-tongue-out-1761385949",
-    address: "Some address 5, 12345 Some City",
-    description: "this is a first meetup",
-  },
-  {
-    id: "m2",
-    title: "meetup2 ",
-    image:
-      "https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Fimages%2Fsearch%2Fdog%2F&psig=AOvVaw2rHYwCP0odExDO3lARqBzz&ust=1690980060335000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDB-t69u4ADFQAAAAAdAAAAABAP",
-    address: "Some address 4, 1234 Some City",
-    description: "this is a second meetup",
-  },
-];
+import Head from "next/head";
+import { MongoClient } from "mongodb";
 
+import MeetupList from "../components/meetups/MeetupList";
+
+// run on server not client
 //to prepare props for this page
 export async function getStaticProps() {
   // fetch data from an API, read data from some files
 
+  const client = await MongoClient.connect(
+    "mongodb+srv://dbUser:hvaIX5bXYdyXJbW2@cluster0.vpq0rkv.mongodb.net/",
+  );
+  const db = client.db();
+  const meetupsCollection = db.collection("meetups");
+
+  // .find() give access to all data inside
+  const meetups = await meetupsCollection.find().toArray();
+
+  client.close();
   //always return something
   return {
     //set as props for this page component
     props: {
-      meetups: DUMMY_MEETUPS,
+      meetups: meetups.map((meetup) => ({
+        title: meetup.title,
+        address: meetup.address,
+        image: meetup.image,
+        id: meetup._id.toString(),
+      })),
     },
+    // incremental static generation
+    // regenerate every 1 second
+    revalidate: 1,
   };
 }
+
+// // also run on servers
+// // run for every incoming request
+// export async function getServerSideProps(context) {
+//   const req = context.req;
+//   const res = context.res;
+
+//   //fetch data from an API
+
+//   return { props: { meetups: DUMMY_MEETUPS } };
+// }
 
 function HomePage(props) {
   //* no longer need this code
@@ -38,7 +53,18 @@ function HomePage(props) {
   //   setLoadedMeetups(DUMMY_MEETUPS);
   // }, []);
 
-  return <MeetupList meetups={props.meetups}></MeetupList>;
+  return (
+    <>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups}></MeetupList>
+    </>
+  );
 }
 
 export default HomePage;
