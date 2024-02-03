@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -9,7 +10,13 @@ function App() {
       <nav>
         <ul>
           <li>
-            <a href="profile">Profile page</a>
+            <Link to="profile/">Profile page</Link>
+          </li>
+          <li>
+            <Link to="profile/popeye">Popeye Profile page</Link>
+          </li>
+          <li>
+            <Link to="profile/spinach">Spinach Profile page</Link>
           </li>
         </ul>
       </nav>
