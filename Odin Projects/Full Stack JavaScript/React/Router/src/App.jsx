@@ -1,8 +1,11 @@
 import { useState } from "react";
 import "./App.css";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 function App() {
+  const [searchParams, setSearchParams] = useSearchParams({ n: 3 });
+  const number = searchParams.get("n");
+  console.log("rerender");
   return (
     <div>
       <h1>Hello from the main page of the app!</h1>
@@ -17,6 +20,14 @@ function App() {
           </li>
           <li>
             <Link to="profile/spinach">Spinach Profile page</Link>
+          </li>
+          <li>
+            <input
+              type="text"
+              value={number}
+              onChange={(e) => setSearchParams({ n: e.target.value })}
+            ></input>
+            {number}
           </li>
         </ul>
       </nav>
