@@ -3,7 +3,6 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Image from "./Components/Image";
-import { QueryClientProvider } from "@tanstack/react-query";
 
 function App() {
   const [count, setCount] = useState(0);
